@@ -788,6 +788,10 @@ video {
   height: 4rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-\[185px\] {
   height: 185px;
 }
@@ -844,16 +848,8 @@ video {
   height: 100vh;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
-}
-
-.w-1\/3 {
-  width: 33.333333%;
 }
 
 .w-10 {
@@ -866,10 +862,6 @@ video {
 
 .w-2 {
   width: 0.5rem;
-}
-
-.w-2\/3 {
-  width: 66.666667%;
 }
 
 .w-6 {
@@ -1086,6 +1078,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.\!bg-green-600 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity)) !important;
+}
+
 .bg-\[\#31FF2F\] {
   --tw-bg-opacity: 1;
   background-color: rgb(49 255 47 / var(--tw-bg-opacity));
@@ -1135,62 +1132,48 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-red-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-
-.\!bg-green-600 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(22 163 74 / var(--tw-bg-opacity)) !important;
-}
-
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
 }
 
-.bg-opacity-100 {
-  --tw-bg-opacity: 1;
-}
-
 .bg-creche-img {
-  background-image: url('/build/img/creche.png');
+  background-image: url('/assets/img/creche.png');
 }
 
 .bg-custom-bg {
-  background-image: url('/build/img/bg-img.png');
+  background-image: url('/assets/img/bg-img.png');
 }
 
 .bg-mini-img-1 {
-  background-image: url('/build/img/std_1.png');
+  background-image: url('/assets/img/std_1.png');
 }
 
 .bg-mini-img-2 {
-  background-image: url('/build/img/std_2.png');
+  background-image: url('/assets/img/std_2.png');
 }
 
 .bg-mini-img-3 {
-  background-image: url('/build/img/std_3.png');
+  background-image: url('/assets/img/std_3.png');
 }
 
 .bg-mini-img-4 {
-  background-image: url('/build/img/std_4.png');
+  background-image: url('/assets/img/std_4.png');
 }
 
 .bg-nursery-img {
-  background-image: url('/build/img/nursery.png');
+  background-image: url('/assets/img/nursery.png');
 }
 
 .bg-primary-img {
-  background-image: url('/build/img/primary.png');
+  background-image: url('/assets/img/primary.png');
 }
 
 .bg-qoute-img {
-  background-image: url('/build/img/qoute_img.jpg');
+  background-image: url('/assets/img/qoute_img.jpg');
 }
 
 .bg-secondary-img {
-  background-image: url('/build/img/secondary.png');
+  background-image: url('/assets/img/secondary.png');
 }
 
 .bg-cover {
@@ -1428,6 +1411,10 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.\!opacity-100 {
+  opacity: 1 !important;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -1442,10 +1429,6 @@ video {
 
 .opacity-75 {
   opacity: 0.75;
-}
-
-.\!opacity-100 {
-  opacity: 1 !important;
 }
 
 .shadow {
@@ -1597,6 +1580,10 @@ video {
     display: inline;
   }
 
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:hidden {
     display: none;
   }
@@ -1688,6 +1675,14 @@ video {
 
   .lg\:h-\[627px\] {
     height: 627px;
+  }
+
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .lg\:w-\[45\%\] {
