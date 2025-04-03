@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Florence Obi Academy</title>		
+        <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+        <link rel="stylesheet" href="/assets/css/style.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <script src="//unpkg.com/alpinejs" defer></script>
+
+        <script>
+                function showNews(title, image, details, event) {
+                event.preventDefault(); // Prevent page from scrolling to top
+                document.getElementById('news-title').innerText = title;
+                document.getElementById('news-image').src = image;
+                document.getElementById('news-details').innerText = details;
+            }
+        </script>
+        <style>
+            @keyframes scrollUp {
+                0% { transform: translateY(0%); }
+                100% { transform: translateY(-100%); }
+            }
+
+            .animate-scroll {
+                position: absolute;
+                width: 100%;
+                animation: scrollUp 30s linear infinite; /* Slower speed */
+            }
+        </style>
+    </head>
+    <body class="antialiased min-h-screen bg-[#FFFFF5] overflow-x-hidden" x-data="{open: false}">
+        
+        <!-- Header part starts-->
+        <div class="block bg-custom-bg bg-cover bg-center bg-no-repeat h-screen w-full">
+            <!-- Dark Transparent Overlay -->             
+            <div class="absolute inset-0 bg-black opacity-30 z-[5]"></div>
+            
+            <div class="relative z-10">
+                <nav class="absolute inset-0 transform duration-200 lg:hidden lg:translate-x-0 opacity-75 z-10 w-72 bg-green-600 text-white p-3 h-screen" :class="{'translate-x-0 ease-in opacity-100':open === true, '-translate-x-full ease-out opacity-0':open === false}">
+                    <div class="flex items-center justify-center !bg-green-600 !opacity-100">
+                        <span class="text-xl font-bold">
+                            <img src="/assets/img/logo.png" alt="Description" class="w-[60px] h-[60px]">Florence Obi Academy
+                        </span>
+                        <button class="hover:bg-green-500 focus:outline-none focus:bg-green-500 rounded-md p-2 lg:hidden" @click="open = false">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                            </svg>
+                        </button>
+                    </div>
+                    <hr class="bg-white h-[2px] w-full border-none mt-1 block">
+                    <ul class="mt-8">
+                        <li>
+                            <a href="#" class="block hover:bg-green-500 py-2 px-4 rounded-md font-bold z-50">Home</a>
+                            <a href="#about" class="block hover:bg-green-500 py-2 px-4 rounded-md font-bold">About Us</a>
+                            <a href="#" class="block hover:bg-green-500 py-2 px-4 rounded-md font-bold">Admissions</a>
+                            <a href="#" class="block hover:bg-green-500 py-2 px-4 rounded-md font-bold">News & Event</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="relative z-0 lg:flex-grow p-5 mx-4">
+                    <div class="fixed top-0 w-full z-[1050]">
+                        <header class="my-9 flex bg-green-500 bg-opacity-30 items-center mx-4 px-6 rounded-[3rem] justify-between w-[90%] z-[2050]">
+                            <!-- Mobile Menu Button (Left) -->
+                            <button class="hover:bg-green-500 focus:outline-none focus:bg-green-500 rounded-md p-2 lg:hidden" @click="open = true">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                                </svg>
+                            </button>
+                    
+                            <!-- Main Navigation Container -->
+                            <div class="text-xl text-white font-outfit flex items-center w-full z-[1000]">
+                                <img src="/assets/img/logo.png" alt="Description" class="w-[60px] h-[60px]">
+                                <div class="flex-1 flex justify-center">
+                                    <div class="p-4 hidden sm:flex lg:flex md:hidden space-x-4 min-[640px]:hidden">
+                                        <a href="#" class="hover:text-slate-300 py-2 px-4 rounded-md">Home</a>
+                                        <a href="#about" class="hover:text-slate-300 py-2 px-4 rounded-md">About Us</a>
+                                        <a href="#" class="hover:text-slate-300 py-2 px-4 rounded-md">Admissions</a>
+                                        <a href="#" class="hover:text-slate-300 py-2 px-4 rounded-md">News & Event</a>
+                                    </div>
+                                </div>
+                                <a href="#" class="bg-[#31FF2F] font-outfit py-2 px-4 rounded-full shadow-md transition-all duration-300 hover:bg-green-400 hover:shadow-lg">Contact Us</a>
+                            </div>
+                        </header>
+                    </div>
+                    
+                </div>
+                <div class="p-4 pt-16 lg:pt-36 md:pt-16 sm:pt-24 text-white font-poppins text-center my-0 lg:my-2 md:my-20">
+                    <div class="font-[700] text-[37px] lg:text-[67px] md:text-[57px] flex flex-col items-center">
+                        <span>Welcome to</span>
+                        <span>Florence Obi Academy</span>
+                    </div>
+                    <div class="font-[500] text-[19px] flex flex-col items-center justify-center w-[60%] mx-auto text-center">
+                        <span>Where we put theory into practice with fun, hands-on learning that sparks creativity and builds bright futures.</span>
+                        <div class="font-outfit font-[600] text-[19px] my-0 lg:my-14 md:my-14 justify-between">
+                            <a href="#" class="block lg:inline md:inline bg-[#31FF2F] font-outfit p-4 mx-4 mt-2 mb-6 lg:my-7 md:my-7 sm:my-7 rounded-full shadow-md transition-all duration-300 hover:bg-green-400 hover:shadow-lg">Enroll Today</a>
+                            <a href="#" class="bg-[#EB268E] font-outfit p-4 m-4 rounded-full shadow-md transition-all duration-300 hover:bg-[#ee22cc66] hover:shadow-lg">Our Programs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header part starts-->
+
+        <!-- Proprietress Message starts-->
+        <div class="mx-10 my-14 font-poppins flex flex-col items-center lg:flex-row lg:justify-center lg:items-start gap-x-1">
+            <div class="lg:w-[45%]">
+                <img src="/assets/img/proprietress.jpg" alt="Description" class="w-[401px] h-[519px] rounded-lg">
+            </div>
+            <div class="inline-block text-black lg:text-left text-center lg:w-[45%] sm:mt-5 lg:mt-0">
+                <p class="font-[500] text-[19px] text-[#EB268E] text-left lg:pb-4 md:pb-4">Florence Obi Academy</p>
+                <p class="font-[600] text-[47px]">Proprietress</p>
+                <p class="font-[600] text-[47px]">Welcome Message</p>
+            
+                <!-- Scrolling container -->
+                <div class="py-2 font-poppins font-[500] text-[16px] h-[230px] overflow-hidden relative">
+                    <div class="animate-scroll">
+                        <p>Dear Parent,</p>
+                        <p class="text-justify py-4">
+                            Welcome to Florence Obi Academy! I’m delighted to have you join our community where learning is an adventure. 
+                            Here, we believe in “Putting Theory into Practice” every day—transforming ideas into fun, hands-on experiences 
+                            that spark creativity and build real-world skills.
+                        </p>
+                        <p class="text-justify">
+                            At Florence Obi Academy, our passionate teachers and supportive environment ensure that every student feels valued 
+                            and inspired. We celebrate curiosity, embrace challenges, and foster a love of learning that extends beyond the classroom. 
+                            Join us as we create a vibrant, dynamic community of future leaders ready to shine!
+                        </p>
+                        <p class="text-justify py-4">
+                            Thank you for entrusting us with your child’s education. Together, we’ll explore, discover, and grow, 
+                            turning each lesson into an opportunity for lifelong success.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="py-2 text-left">
+                    <p class="font-[600] text-[28px]">Prof (Mrs) Florence Obi Banku</p>
+                    <p class="font-[500] text-[19px]">Proprietress</p>
+                    <p class="font-[500] text-[#EB268E] text-[19px] italic">Florence Obi Academy</p>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="mx-24 font-poppins">
+            <p class="font-[500] text-[16px] text-[#EB268E]">About Us</p>
+            <p class="font-[600] text-[23px]">About Florence Obi Academy</p>
+            <div class="flex flex-col font-[400] text-[16px]">
+                <!-- Image and Description Section -->
+                <div id="img-n-desc" class="flex flex-col lg:flex-row md:flex-row gap-10 lg:items-start items-center w-full relative">
+                    <div class="lg:flex gap-6">
+                        <div>
+                            <p>At Florence Obi Academy, we transform everyday learning into engaging, hands-on experiences that spark creativity and build real-world skills.</p>
+                            <button class="bg-[#EB268E] text-white font-outfit font-[600] text-[15.83px] hover:bg-[#ee22cc66] focus:outline-none focus:bg-[#e257a1] rounded-[3rem] px-7 py-3 my-7">
+                                Enroll Today
+                            </button>
+                        </div>
+                        
+                        <p>Join us in a vibrant, dynamic environment where every student is celebrated and empowered to excel.</p>
+                    </div>
+                    <img src="/assets/img/school_girl_1S.jpg" alt="Description" class="rounded-lg w-[295px] h-auto">
+                </div>            
+                <!-- Activities Section (Always Below) -->
+                <div id="activities" class="block w-full mt-6 lg:absolute lg:bottom-[-1105px]">
+                    <div class="flex lg:flex-row md:flex-row sm:flex-row flex-col items-center justify-start gap-y-5 gap-x-5 font-outfit font-[500] text-[13px]">
+                        <div class="relative w-[185px] h-[185px] rounded-lg flex items-end p-3 text-white text-center justify-center bg-mini-img-1 bg-cover bg-center bg-no-repeat">
+                            <div class="absolute inset-0 bg-black/30 rounded-lg"></div>
+                            <p class="relative z-10">JOY IN LEARNING</p>
+                        </div>
+                        <div class="relative bg-mini-img-2 bg-cover bg-center bg-no-repeat w-[185px] h-[185px] rounded-lg flex items-end p-3 text-white justify-center">
+                            <div class="absolute inset-0 bg-black/30 rounded-lg"></div>
+                            <p class="relative z-10">SPORT ACTIVITY</p>
+                        </div>
+                        <div class="relative bg-mini-img-3 bg-cover bg-center bg-no-repeat w-[185px] h-[185px] rounded-lg flex items-end p-3 text-white justify-center">
+                            <div class="absolute inset-0 bg-black/30 rounded-lg"></div>
+                            <p class="relative z-10">CREATIVE ARTS & CRAFTS</p>
+                        </div>
+                        <div class="relative bg-mini-img-4 bg-cover bg-center bg-no-repeat w-[185px] h-[185px] rounded-lg flex items-end p-3 text-white justify-center">
+                            <div class="absolute inset-0 bg-black/30 rounded-lg"></div>
+                            <p class="relative z-10">MUSIC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col lg:flex-row md:flex-row gap-5 mt-12">
+                <div class="bg-[#FFEEF7] lg:w-[50%] md:w-[50%] rounded-lg font-outfit">
+                    <div class="flex m-5">
+                        <div>
+                            <img src="/assets/img/logo_1.JPG" alt="Description" class="rounded-full">
+                        </div>                        
+                        <span class="font-[500] text-[27px] text-[#EB268E] p-3 font-semibold">Our Mission</span>
+                    </div>
+                    <div class="mx-8 mt-20 mb-5">
+                        <p class="font-[400] text-[19px]">At Florence Obi Academy, our mission is to empower every child through engaging, hands-on learning experiences that turn theory into practice. We are dedicated to nurturing creativity, and fostering an environment where every student thrives.</p>
+                    </div>
+                </div>
+                <div class="bg-[#FFEEF7] lg:w-[50%] md:w-[50%] rounded-lg font-outfit">
+                    <div class="flex m-5">
+                        <div>
+                            <img src="/assets/img/logo_2.JPG" alt="Description" class="rounded-full">
+                        </div>
+                        <span class="font-[500] text-[27px] text-[#EB268E] p-3 font-semibold">Our Vision</span>
+                    </div>
+                    <div class="mx-8 mt-20 mb-5">
+                        <p class="font-[400] text-[19px]">Our vision is to create a vibrant community where children grow into curious, confident, and capable individuals. We aspire to be a beacon of innovative education, preparing future leaders who are ready to excel in a dynamic world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-24 my-20">
+            <div class="flex flex-col font-poppins items-center">
+                <div class="lg:w-[50%] md:w-[70%] text-center">
+                    <p class="font-[500] text-[16px] text-[#EB268E] mb-5">Admissions</p>
+                    <p class="font-[600] text-[23px] mb-5">Discover Our Programs</p>
+                    <p class="font-[400] text-[16px] mb-5">Step into a world of discovery—our seamless enrollment process welcomes your child to a vibrant learning community.</p>                    
+                </div>
+            </div>
+            <div class="flex flex-col font-outfit mt-5 gap-7">                
+                <div class="relative flex flex-col lg:flex-row md:flex-row gap-5 items-center">
+                    <div class="bg-creche-img bg-cover bg-center bg-no-repeat w-[245px] h-[335px] rounded-xl"></div>
+                    <div class="bg-[#FFEEF7] w-[245px] h-[335px] grid py-5 px-4 rounded-xl">
+                        <p class="font-[500] text-[23px] text-[#EB268E]">Crèche</p>
+                        <p class="font-[400] text-[16px] mt-24 md:mt-4">Enroll your little one in our Creche, where nurturing care meets joyful discovery for a confident start.</p>
+                        <button class="bg-[#EB268E] text-white font-outfit font-[400] text-[16px] mt-5 w-[123px] h-[40px] hover:bg-[#ee22cc66] focus:outline-none focus:bg-[#e257a1] rounded-[3rem]">
+                            Enroll now
+                        </button>
+                    </div>
+                    <div class="bg-nursery-img bg-cover bg-center bg-no-repeat w-[245px] h-[335px] rounded-xl"></div>
+                    <div class="bg-[#FFEEF7] w-[245px] h-[335px] grid py-5 px-4 rounded-xl">
+                        <p class="font-[500] text-[23px] text-[#EB268E]">Nursery</p>
+                        <p class="font-[400] text-[16px] mt-24 md:mt-4">Step into our Nursery and ignite a passion for learning, where playful exploration builds strong bonds.</p>
+                        <button class="bg-[#EB268E] text-white font-outfit font-[400] text-[16px] mt-5 w-[123px] h-[40px] hover:bg-[#ee22cc66] focus:outline-none focus:bg-[#e257a1] rounded-[3rem]">
+                            Enroll now
+                        </button>
+                    </div>
+                </div>
+                <div class="relative flex flex-col lg:flex-row md:flex-row gap-5 items-center">
+                    <div class="bg-[#FFEEF7] w-[245px] h-[335px] grid py-5 px-4 rounded-xl">
+                        <p class="font-[500] text-[23px] text-[#EB268E]">Primary</p>
+                        <p class="font-[400] text-[16px] mt-24 md:mt-4">Join our Primary program and empower your child with hands-on learning for lasting success.</p>
+                        <button class="bg-[#EB268E] text-white font-outfit font-[400] text-[16px] mt-5 w-[123px] h-[40px] hover:bg-[#ee22cc66] focus:outline-none focus:bg-[#e257a1] rounded-[3rem]">
+                            Enroll now
+                        </button>
+                    </div>
+                    <div class="bg-primary-img bg-cover bg-center bg-no-repeat w-[245px] h-[335px] rounded-xl"></div>
+                    <div class="bg-[#FFEEF7] w-[245px] h-[335px] grid py-5 px-4 rounded-xl">
+                        <p class="font-[500] text-[23px] text-[#EB268E]">Secondary</p>
+                        <p class="font-[400] text-[16px] mt-24 md:mt-4">Join our Secondary School program and equip your child with the knowledge and skills for a bright future.</p>
+                        <button class="bg-[#EB268E] text-white font-outfit font-[400] text-[16px] mt-5 w-[123px] h-[40px] hover:bg-[#ee22cc66] focus:outline-none focus:bg-[#e257a1] rounded-[3rem]">
+                            Enroll now
+                        </button>
+                    </div>
+                    <div class="bg-secondary-img bg-cover bg-center bg-no-repeat w-[245px] h-[335px] rounded-xl"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block lg:flex lg:flex-row mt-12">
+            <div class="font-poppins bg-[#EB268E] w-[100%] h-[800px] lg:h-[627px] md:h-[627px] sm:h-[627px] text-[white] lg:w-[70%]">
+                <div class="flex mx-8 mb-5">
+                    <span class="inline-flex">
+                        <span class="font-[400] text-[200px]">“</span>
+                        <span class="font-[400] text-[43px] leading-tight mt-24"><strong>Education</strong> is the most powerful weapon which you can use to change the world.</span>
+                        <span class="font-[400] text-[200px]">”</span>
+                    </span>
+                </div>                
+                <div class="flex items-center space-x-2 mx-32 my-10">
+                    <hr class="w-2 border-t-2 border-white">
+                    <hr class="w-6 border-t-2 border-white">
+                    <hr class="w-2 border-t-2 border-white">
+                    <hr class="w-10 border-t-2 border-white">
+                    <span class="font-[400] text-[23px]">Nelson Rolihlahla Mandela</span>
+                </div>
+                <div class="lg:hidden"> 
+                    <svg width="100%" height="200" viewBox="0 0 2000 200" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 0 50 L 200 50 L 400 120 L 1000 20 L 1400 150 L 2000 30 L 2000 50" 
+                              fill="none" stroke="#31FF2F" stroke-width="250"/>
+                    </svg>
+                </div>
+            </div>
+             <!-- Right Section (Moves to Next Row on Smaller Screens) -->
+             <div class="bg-[#FFEEF7] lg:w-[50%] w-[100%] rounded-lg font-outfit mt-5 relative flex items-center justify-center h-[610px]">
+                <div class="bg-qoute-img bg-cover bg-center bg-no-repeat w-[90%] h-[90%] rounded-xl ml-5 mt-10 absolute top-0 left-1/2 transform -translate-x-1/2 z-50"></div>
+            </div>
+            
+            
+            <!-- Zigzag SVG - Hidden on small, shown on large screens -->
+            <div class="hidden lg:block absolute top-[3540px] bottom-0 left-0 w-full z-10">
+                <svg width="100%" height="200" viewBox="0 0 2000 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 0 50 L 200 50 L 400 120 L 1000 20 L 1400 150 L 2000 30 L 2000 50" 
+                        fill="none" stroke="#31FF2F" stroke-width="180"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="my-20">
+            <div class="flex flex-col font-poppins items-center">
+                <div class="lg:w-[50%] md:w-[70%] text-center">
+                    <p class="font-[500] text-[16px] text-[#EB268E] mb-5">New & Updates</p>
+                    <p class="font-[600] text-[32px] mb-5">Latest Updates And Events</p>
+                </div>
+            </div>
+            <div class="bg-[#FFEEF7] flex justify-center items-center min-h-screen p-4 font-poppins">
+                <div class="bg-white p-4 rounded-lg shadow-lg flex max-w-5xl w-full h-full">
+                    <!-- Left Section: Large Display Area -->
+                    <div class="w-2/3 pr-4 flex flex-col h-full">
+                        <img id="news-image" src="https://picsum.photos/600/400" alt="News Image" class="w-full rounded-lg shadow-md flex-1 object-cover">
+                        <h2 id="news-title" class="text-2xl font-bold mt-4">New Academic Sessions</h2>
+                        <p id="news-details" class="mt-2 text-gray-700">Click on a news item to display its details here.</p>
+                    </div>
+                    
+                    <!-- Right Section: News List -->
+                    <div class="w-1/3 bg-pink-200 p-4 rounded-lg overflow-y-auto flex flex-col h-[500px]">
+                        <div class="space-y-4 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                            <a href="#" onclick="showNews('New Academic Sessions', 'https://picsum.photos/600/400?random=1', 'Details about the new academic sessions...', event)" class="flex items-center p-3 rounded-lg shadow hover:bg-white">
+                                <img src="https://picsum.photos/64/64?random=1" alt="New Academic Sessions" class="w-16 h-16 rounded-lg object-cover">
+                                <span class="ml-4 font-semibold">New Academic Sessions</span>
+                            </a>
+                            <a href="#" onclick="showNews('Teacher Spotlights', 'https://picsum.photos/600/400?random=2', 'Spotlight on outstanding teachers...', event)" class="flex items-center p-3 rounded-lg shadow hover:bg-white">
+                                <img src="https://picsum.photos/64/64?random=2" alt="Teacher Spotlights" class="w-16 h-16 rounded-lg object-cover">
+                                <span class="ml-4 font-semibold">Teacher Spotlights</span>
+                            </a>
+                            <a href="#" onclick="showNews('Student Achievements', 'https://picsum.photos/600/400?random=3', 'Celebrating student achievements...', event)" class="flex items-center p-3 rounded-lg shadow hover:bg-white">
+                                <img src="https://picsum.photos/64/64?random=3" alt="Student Achievements" class="w-16 h-16 rounded-lg object-cover">
+                                <span class="ml-4 font-semibold">Student Achievements</span>
+                            </a>
+                            <a href="#" onclick="showNews('Field Trips & Excursions', 'https://picsum.photos/600/400?random=4', 'Exciting field trips and excursions...', event)" class="flex items-center p-3 rounded-lg shadow hover:bg-white">
+                                <img src="https://picsum.photos/64/64?random=4" alt="Field Trips & Excursions" class="w-16 h-16 rounded-lg object-cover">
+                                <span class="ml-4 font-semibold">Field Trips & Excursions</span>
+                            </a>
+                            <a href="#" onclick="showNews('Special Announcements', 'https://picsum.photos/600/400?random=5', 'Latest special announcements...', event)" class="flex items-center p-3 rounded-lg shadow hover:bg-white">
+                                <img src="https://picsum.photos/64/64?random=5" alt="Special Announcements" class="w-16 h-16 rounded-lg object-cover">
+                                <span class="ml-4 font-semibold">Special Announcements</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <br/>
+        <br/>
+
+        <footer class="bg-[#FFEEF7] font-outfit py-8 px-6">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start">
+                <!-- Left Section -->
+                <div class="md:w-1/3 text-center md:text-left">
+                    <img src="/assets/img/logo.png" alt="Description" class="w-[60px] h-[60px] mb-4">
+                    <p class="text-[#141414] font-[500] text-[19px] px-2">
+                        Florence Obi Academy, a nurturing environment for Creche, Nursery, Primary, and Secondary education.
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="flex justify-center md:justify-start gap-4 mt-4">
+                        <a href="#" class="text-gray-700 hover:text-gray-900 text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-700 hover:text-gray-900 text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-700 hover:text-gray-900 text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+        
+                <!-- Center Section -->
+                <div class="md:w-1/3 text-center md:text-left mt-6 md:mt-0">
+                    <h3 class="text-[23px] font-[600] text-[#141414]">Explore</h3>
+                    <ul class="mt-2 space-y-2 text-gray-700 font-medium">
+                        <li><a href="#" class="text-[#141414] font-[500] text-[19px] hover:text-gray-900">Home</a></li>
+                        <li><a href="#" class="text-[#141414] font-[500] text-[19px] hover:text-gray-900">About Us</a></li>
+                        <li><a href="#" class="text-[#141414] font-[500] text-[19px] hover:text-gray-900">Admissions</a></li>
+                        <li><a href="#" class="text-[#141414] font-[500] text-[19px] hover:text-gray-900">News & Events</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Right Section -->
+                <div class="md:w-1/3 text-center md:text-left mt-6 md:mt-0">
+                    <h3 class="text-[23px] font-[600] text-[#141414]">Quick Links</h3>
+                    <ul class="mt-2 space-y-2 text-gray-700 font-medium">
+                        <li><a href="#" class="text-[#141414] font-[500] text-[19px] hover:text-gray-900">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+        
+    </body>
+</html>
