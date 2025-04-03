@@ -1,0 +1,24 @@
+{
+  "name": "foa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./build/css/style.css --watch",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/outfit": "^5.2.5",
+    "@fontsource/poppins": "^5.2.5",
+    "foa": "file:"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "parcel": "^2.14.4",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.3.5"
+  }
+}
